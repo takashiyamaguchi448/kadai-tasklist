@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-6">
-            {!! Form::model($task, ['route' => 'tasks.store']) !!}
+            {!! Form::model($taskstask, ['route' => 'taskstasks.store']) !!}
         
                 <div class="form-group">
                     {!! Form::label('content', 'タスク:') !!}

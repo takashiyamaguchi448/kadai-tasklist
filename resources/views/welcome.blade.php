@@ -5,15 +5,15 @@
         <div class="row">
             <div class="col-sm-8">
                 @if (Auth::id() == $user->id)
-                    {!! Form::open(['route' => 'tasks.store']) !!}
+                    {!! Form::open(['route' => 'taskstasks.store']) !!}
                         <div class="form-group">
                             {!! Form::textarea('content', old('content'), ['class' => 'form-control', 'rows' => '2']) !!}
                             {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
                         </div>
                     {!! Form::close() !!}
                 @endif
-                @if (count($tasks) > 0)
-                    @include('tasks.tasks', ['tasks' => $tasks])
+                @if (count($taskstasks) > 0)
+                    @include('taskstasks.taskstasks', ['taskstasks' => $taskstasks])
                 @endif
             </div>
         </div>
