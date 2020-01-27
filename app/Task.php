@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Taskstask extends Model
+class Task extends Model
 {
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content', 'user_id', 'status'];
 
     public function user()
     {

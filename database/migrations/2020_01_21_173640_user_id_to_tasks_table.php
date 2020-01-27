@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UserId extends Migration
+class UserIdToTasksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class UserId extends Migration
      */
     public function up()
     {
-        Schema::create('taskstasks', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::table('tasks', function (Blueprint $table) {
             $table->integer('user_id')->unsigned()->index();
-            $table->string('content');
-            $table->timestamps();
             
+            // 外部キー制約
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -30,6 +28,8 @@ class UserId extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('taskstasks');
+        Schema::table('tasks', function (Blueprint $table) {
+            $table->dropColumn('user_id');
+        });
     }
 }
