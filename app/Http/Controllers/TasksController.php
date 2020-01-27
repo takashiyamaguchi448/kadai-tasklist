@@ -26,8 +26,8 @@ class TasksController extends Controller
             ];
         }
         
-        //return view('tasks.index', $data);
-        return view('welcome');
+        return view('tasks.index', $data);
+        //return view('welcome');
     }
 
     /**
