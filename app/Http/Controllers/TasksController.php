@@ -25,9 +25,7 @@ class TasksController extends Controller
                 'tasks' => $tasks,
             ];
         }
-        
-        return view('tasks.index', $data);
-        //return view('welcome');
+        return view('welcome', $data);
     }
 
     /**
@@ -53,18 +51,16 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'content' => 'required|max:191',
             'status' => 'required|max:10',
         ]);
         
         $request->user()->tasks()->create([
             'content' => $request->content,
-        ]);
-        
-        $request->user()->tasks()->create([
             'status' => $request->status,
         ]);
 
-        return back();
+        return redirect('/');
     }
 
     /**
@@ -107,6 +103,7 @@ class TasksController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
+            'content' => 'required|max:191',
             'status' => 'required|max:10',
         ]);
         
